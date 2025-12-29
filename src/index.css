@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes floatFlower {
+    0% {
+      transform: translateY(100vh) rotate(0deg) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(0) rotate(180deg) scale(1.2);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(360deg) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes celebration {
+    0% {
+      transform: translateY(0) scale(0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50vh) scale(1.5) rotate(180deg);
+    }
+    100% {
+      transform: translateY(-100vh) scale(0) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(10px);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .floating-heart {
+    position: absolute;
+    animation: float linear infinite;
+    width: 30px;
+    height: 30px;
+  }
+
+  .floating-flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .floating-flower {
+    position: absolute;
+    animation: floatFlower linear infinite;
+    width: 35px;
+    height: 35px;
+  }
+
+  .celebration-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .celebration-heart {
+    position: absolute;
+    animation: celebration ease-out forwards;
+    width: 40px;
+    height: 40px;
+  }
+
+  .celebration-flower {
+    position: absolute;
+    animation: celebration ease-out forwards;
+    width: 45px;
+    height: 45px;
+  }
+
+  .broken-hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .broken-heart {
+    position: absolute;
+    animation: float 3s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .signature-text {
+    font-family: 'Brush Script MT', cursive;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  @supports not (font-family: 'Brush Script MT') {
+    .signature-text {
+      font-family: 'Lucida Handwriting', 'Apple Chancery', cursive;
+    }
+  }
+
+  @keyframes bloom {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes petalAppear {
+    0% {
+      transform: scale(0) rotate(-180deg);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.15) rotate(10deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes sway {
+    0%, 100% {
+      transform: rotate(0deg);
+      transform-origin: center;
+    }
+    25% {
+      transform: rotate(2deg);
+      transform-origin: center;
+    }
+    75% {
+      transform: rotate(-2deg);
+      transform-origin: center;
+    }
+  }
+
+  .animate-bloom {
+    animation: bloom 1s ease-out forwards;
+  }
+
+  .animate-petalAppear {
+    animation: petalAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .animate-sway {
+    animation: sway 4s ease-in-out infinite;
+  }
+
+  .tree-trunk {
+    transition: stroke-width 0.3s ease;
+  }
+
+  .stage-1 {
+    stroke-width: 12px;
+  }
+
+  .stage-2 {
+    stroke-width: 14px;
+  }
+
+  .stage-3 {
+    stroke-width: 16px;
+  }
+
+  .stage-4 {
+    stroke-width: 18px;
+  }
+
+  .stage-5 {
+    stroke-width: 20px;
+  }
+
+  @keyframes starAppear {
+    from {
+      opacity: 0;
+      transform: scale(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-starAppear {
+    animation: starAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+}
